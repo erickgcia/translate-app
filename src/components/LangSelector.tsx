@@ -1,24 +1,17 @@
-import { RootState } from '../state/store'
 import { LANGUAGES } from '../constants'
+import { VerticalSwitch } from './Icons'
+import { useDispatch } from 'react-redux'
+import { setLanguage } from '../state/translate/translateSlice'
 import {
   FranceFlag,
   Globe,
   MexicoFlag,
   UnitedStatesFlag,
-  VerticalSwitch,
-} from './Icons'
-import { useDispatch, useSelector } from 'react-redux'
-import { setLanguage } from '../state/translate/translateSlice'
+} from '../components/Icons'
+import { Props } from '../types'
 
-const LangSelector = () => {
-  const currentLang = useSelector(
-    (state: RootState) => state.translate.langInput
-  )
+const LangSelector = ({ location, currentLang }: Props) => {
   const dispatch = useDispatch()
-
-  const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    dispatch(setLanguage({ location: 'langInput', value: e.target.value }))
-  }
 
   const checkCurrentFlag = () => {
     switch (currentLang) {
@@ -35,17 +28,23 @@ const LangSelector = () => {
     }
   }
 
+  const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    dispatch(setLanguage({ location: location, value: e.target.value }))
+  }
+
   return (
-    <section className="language-box">
+    <section className="language-selector">
       <i className="icon--flag">{checkCurrentFlag()}</i>
       <select
-        className="language-box__selector"
+        className="language-selector__select"
         name="languages"
         id="language-select"
         value={currentLang}
         onChange={handleChange}
       >
-        <option value="auto">Select a language</option>
+        {location === 'langInput' && (
+          <option value="auto">Detect language</option>
+        )}
         {LANGUAGES.map(({ id, code, lang }) => (
           <option key={id} value={code}>
             {lang}

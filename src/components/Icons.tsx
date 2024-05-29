@@ -1,25 +1,3 @@
-export const SwitchIcon = () => {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="20"
-      height="20"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="#000000"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-      <path d="M16 3l4 4l-4 4" />
-      <path d="M10 7l10 0" />
-      <path d="M8 13l-4 4l4 4" />
-      <path d="M4 17l9 0" />
-    </svg>
-  )
-}
-
 export const VerticalSwitch = () => {
   return (
     <svg
@@ -276,6 +254,35 @@ export const Globe = () => {
       <circle cx="12" cy="12" r="10"></circle>
       <line x1="2" y1="12" x2="22" y2="12"></line>
       <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+    </svg>
+  )
+}
+
+export const RotateIcon = () => {
+  return (
+    <svg
+      width="60"
+      height="60"
+      viewBox="0 0 512 512"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <svg
+        width="256px"
+        height="256px"
+        viewBox="0 0 24 24"
+        fill="currentColor"
+        x="128"
+        y="128"
+        role="img"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <g fill="currentColor">
+          <path
+            fill="currentColor"
+            d="M19 8l-4 4h3c0 3.31-2.69 6-6 6c-1.01 0-1.97-.25-2.8-.7l-1.46 1.46C8.97 19.54 10.43 20 12 20c4.42 0 8-3.58 8-8h3l-4-4zM6 12c0-3.31 2.69-6 6-6c1.01 0 1.97.25 2.8.7l1.46-1.46C15.03 4.46 13.57 4 12 4c-4.42 0-8 3.58-8 8H1l4 4l4-4H6z"
+          ></path>
+        </g>
+      </svg>
     </svg>
   )
 }

@@ -1,11 +1,11 @@
 import './App.css'
-import LangSelector from './components/LangSelector'
+import TranslateBox from './components/TranslateBox'
 
 const App = () => {
   return (
     <article className="container">
       <h1 className="title">TranslateApp</h1>
-      <LangSelector />
+      <TranslateBox />
     </article>
   )
 }

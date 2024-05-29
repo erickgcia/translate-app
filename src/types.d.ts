@@ -4,6 +4,11 @@ export type Language = keyof typeof LANGUAGES
 export type AutoLanguage = typeof AUTO_LANGUAGE
 export type FromLanguage = Language | AutoLanguage
 
+export type Props = {
+  location: 'langInput' | 'langOutput'
+  currentLang: string
+}
+
 export interface LanguagePayload {
   location: 'langInput' | 'langOutput'
   value: string

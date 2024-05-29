@@ -1,12 +1,10 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { RootState } from '../state/store'
 import { switchLanguage } from '../state/translate/translateSlice'
-import { AUTO_LANGUAGE } from '../constants'
-import { SwitchIcon } from './Icons'
+import { RotateIcon } from './Icons'
 
 const LangSwitch = () => {
-  const fromLang = useSelector((state: RootState) => state.translate.langInput)
-  const toLang = useSelector((state: RootState) => state.translate.langOutput)
+  const langInput = useSelector((state: RootState) => state.translate.langInput)
   const dispatch = useDispatch()
 
   const handleClick = () => {
@@ -14,11 +12,9 @@ const LangSwitch = () => {
   }
   return (
     <div className="switch">
-      <span>{fromLang}</span>
-      <button disabled={fromLang === AUTO_LANGUAGE} onClick={handleClick}>
-        <SwitchIcon />
+      <button disabled={langInput === 'auto'} onClick={handleClick}>
+        <RotateIcon />
       </button>
-      <span>{toLang}</span>
     </div>
   )
 }
