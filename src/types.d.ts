@@ -21,3 +21,8 @@ export interface translateState {
   resultText: string
   loading: boolean
 }
+
+export enum SectionType {
+  Input = 'input',
+  Output = 'output',
+}

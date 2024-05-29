@@ -149,3 +149,9 @@ textarea {
   background-color: transparent;
   transform: rotate(210deg);
 }
+
+select option {
+  font-weight: 700;
+  background-color: var(--gray);
+  color: var(--black);
+}
