@@ -4,7 +4,7 @@ interface Props {
   loading?: boolean
   value: string
   type: SectionType
-  onChange?: (e: React.ChangeEvent<HTMLTextAreaElement>) => void
+  onChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void
 }
 
 const TextArea = ({ loading, value, type, onChange }: Props) => {
@@ -25,7 +25,7 @@ const TextArea = ({ loading, value, type, onChange }: Props) => {
       placeholder={placeHolderText}
       onChange={onChange}
       value={value}
-      readOnly={type === SectionType.Output}
+      disabled={type === SectionType.Output}
     ></textarea>
   )
 }

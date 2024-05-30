@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux'
 import { setLanguage } from '../state/translate/translateSlice'
 import {
   FranceFlag,
-  Globe,
+  GlobeIcon,
   MexicoFlag,
   UnitedStatesFlag,
 } from '../components/Icons'
@@ -16,7 +16,7 @@ const LangSelector = ({ location, currentLang }: Props) => {
   const checkCurrentFlag = () => {
     switch (currentLang) {
       case 'auto':
-        return <Globe />
+        return <GlobeIcon />
       case 'en':
         return <UnitedStatesFlag />
       case 'es':

@@ -4,7 +4,7 @@ import { RootState } from '../state/store'
 import LangSwitch from './LangSwitch'
 import TextArea from './TextArea'
 import { SectionType } from '../types.d'
-import { setText } from '../state/translate/translateSlice'
+import { setResult, setText } from '../state/translate/translateSlice'
 
 const TranslateBox = () => {
   const inputLang = useSelector((state: RootState) => state.translate.langInput)
@@ -21,6 +21,10 @@ const TranslateBox = () => {
 
   const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     dispatch(setText(e.target.value))
+  }
+
+  const handleResultChange = () => {
+    dispatch(setResult(text))
   }
 
   return (
@@ -47,6 +51,7 @@ const TranslateBox = () => {
           loading={loadingStatus}
           value={result}
           type={SectionType.Output}
+          onChange={handleResultChange}
         />
       </section>
     </article>

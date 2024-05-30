@@ -1,8 +1,12 @@
 import {
+  ClockIcon,
   FranceFlag,
-  Globe,
+  GlobeIcon,
   MexicoFlag,
+  StarIcon,
+  TranslateIcon,
   UnitedStatesFlag,
+  UserIcon,
 } from '../components/Icons'
 
 export const LANGUAGES = [
@@ -30,6 +34,33 @@ export const AUTO_LANGUAGE = [
   {
     id: crypto.randomUUID(),
     code: 'auto',
-    flag: Globe,
+    flag: GlobeIcon,
+  },
+]
+
+export const NavLinks = [
+  {
+    id: crypto.randomUUID(),
+    icon: TranslateIcon,
+    to: '#',
+    name: 'Translate',
+  },
+  {
+    id: crypto.randomUUID(),
+    icon: StarIcon,
+    to: '#',
+    name: 'Favorites',
+  },
+  {
+    id: crypto.randomUUID(),
+    icon: ClockIcon,
+    to: '#',
+    name: 'History',
+  },
+  {
+    id: crypto.randomUUID(),
+    icon: UserIcon,
+    to: '#',
+    name: 'Profile',
   },
 ]
