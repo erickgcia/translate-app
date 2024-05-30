@@ -5,10 +5,15 @@ import LangSwitch from './LangSwitch'
 import TextArea from './TextArea'
 import { SectionType } from '../types.d'
 import { setResult, setText } from '../state/translate/translateSlice'
+import { useEffect, useState } from 'react'
+import translate from '../services/translate'
+import { useDebounce } from '../hooks/useDebounce'
+import { CopyIcon } from './Icons'
+import PopUp from './PopUp'
 
 const TranslateBox = () => {
-  const inputLang = useSelector((state: RootState) => state.translate.langInput)
-  const outputLang = useSelector(
+  const langInput = useSelector((state: RootState) => state.translate.langInput)
+  const langOutput = useSelector(
     (state: RootState) => state.translate.langOutput
   )
   const text = useSelector((state: RootState) => state.translate.text)
@@ -19,19 +24,50 @@ const TranslateBox = () => {
 
   const dispatch = useDispatch()
 
+  const [isCopied, setIsCopied] = useState(false)
+
+  const handleClipboardClick = () => {
+    navigator.clipboard
+      .writeText(result)
+      .then(() => {
+        setIsCopied(true)
+        setTimeout(() => {
+          setIsCopied(false)
+        }, 1500)
+      })
+      .catch((error) => {
+        console.error('Error copying text to clipboard: ', error)
+      })
+  }
+
   const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     dispatch(setText(e.target.value))
   }
 
   const handleResultChange = () => {
-    dispatch(setResult(text))
+    dispatch(setResult(result))
   }
+
+  const debounceText = useDebounce(text, 300)
+
+  useEffect(() => {
+    if (debounceText === '') return
+
+    translate({ langInput, langOutput, text: debounceText })
+      .then((translatedResult) => {
+        if (translatedResult === null || translatedResult === undefined) return
+        dispatch(setResult(translatedResult))
+      })
+      .catch(() => {
+        dispatch(setResult('Error'))
+      })
+  }, [debounceText, langInput, langOutput, dispatch])
 
   return (
     <article className="translate-box">
       <section className="translate-box__section">
         <div className="lang-input">
-          <LangSelector location="langInput" currentLang={inputLang} />
+          <LangSelector location="langInput" currentLang={langInput} />
         </div>
         <TextArea
           loading={loadingStatus}
@@ -45,7 +81,7 @@ const TranslateBox = () => {
       </div>
       <section className="translate-box__section">
         <div className="lang-input">
-          <LangSelector location="langOutput" currentLang={outputLang} />
+          <LangSelector location="langOutput" currentLang={langOutput} />
         </div>
         <TextArea
           loading={loadingStatus}
@@ -53,6 +89,10 @@ const TranslateBox = () => {
           type={SectionType.Output}
           onChange={handleResultChange}
         />
+        <i className="icon--copy" onClick={handleClipboardClick}>
+          <CopyIcon />
+          {isCopied && <PopUp text="Text copied to your clipboard." />}
+        </i>
       </section>
     </article>
   )

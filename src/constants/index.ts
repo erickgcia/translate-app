@@ -38,6 +38,12 @@ export const AUTO_LANGUAGE = [
   },
 ]
 
+export const LANGUAGEABVS: { [key: string]: string } = {
+  en: 'English',
+  es: 'Español',
+  fr: 'Français',
+}
+
 export const NavLinks = [
   {
     id: crypto.randomUUID(),

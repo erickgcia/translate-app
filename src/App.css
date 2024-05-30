@@ -247,3 +247,28 @@ select option {
     }
   }
 }
+
+.icon--copy {
+  position: absolute;
+  cursor: pointer;
+  right: 15px;
+  bottom: 15px;
+}
+
+.pop-up {
+  position: absolute;
+  left: -10%;
+  top: -150%;
+  background-color: var(--lightBlue);
+  border: 1px solid var(--zinc);
+  color: var(--white);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  width: fit-content;
+  span {
+    text-wrap: nowrap;
+    text-align: center;
+    font-weight: 700;
+    font-size: 12px;
+  }
+}

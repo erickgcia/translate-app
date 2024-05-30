@@ -15,11 +15,12 @@ const App = () => {
   const handleClick = () => {
     dispatch(setMenu(!menuStatus))
   }
+
   return (
     <>
       <header className="header">
         <a href="#">
-          <h1 className="header__title">TranslateApp</h1>
+          <h1 className="header__title">EasyTranslate</h1>
         </a>
         <i className="header__icon" onClick={handleClick}>
           {!menuStatus ? <MenuIcon /> : <XIcon />}
