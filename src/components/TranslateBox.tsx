@@ -8,7 +8,7 @@ import { setResult, setText } from '../state/translate/translateSlice'
 import { useEffect, useState } from 'react'
 import translate from '../services/translate'
 import { useDebounce } from '../hooks/useDebounce'
-import { CopyIcon } from './Icons'
+import { CopyIcon, SpeakerIcon } from './Icons'
 import PopUp from './PopUp'
 
 const TranslateBox = () => {
@@ -38,6 +38,12 @@ const TranslateBox = () => {
       .catch((error) => {
         console.error('Error copying text to clipboard: ', error)
       })
+  }
+
+  const handleSpeakerClick = (box: string) => {
+    const utterance = new SpeechSynthesisUtterance(box)
+    utterance.lang = 'en-AU'
+    speechSynthesis.speak(utterance)
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -75,6 +81,11 @@ const TranslateBox = () => {
           type={SectionType.Input}
           onChange={handleChange}
         />
+        {text !== '' && (
+          <i className="icon--speaker" onClick={() => handleSpeakerClick(text)}>
+            <SpeakerIcon />
+          </i>
+        )}
       </section>
       <div className="translate-box--switch">
         <LangSwitch />
@@ -89,10 +100,21 @@ const TranslateBox = () => {
           type={SectionType.Output}
           onChange={handleResultChange}
         />
-        <i className="icon--copy" onClick={handleClipboardClick}>
-          <CopyIcon />
-          {isCopied && <PopUp text="Text copied to your clipboard." />}
-        </i>
+        {text !== '' && (
+          <>
+            <i
+              className="icon--speaker"
+              onClick={() => handleSpeakerClick(result)}
+            >
+              <SpeakerIcon />
+            </i>
+
+            <i className="icon--copy" onClick={handleClipboardClick}>
+              <CopyIcon />
+              {isCopied && <PopUp text="Copied to your clipboard." />}
+            </i>
+          </>
+        )}
       </section>
     </article>
   )

@@ -255,6 +255,13 @@ select option {
   bottom: 15px;
 }
 
+.icon--speaker {
+  position: absolute;
+  cursor: pointer;
+  left: 15px;
+  bottom: 15px;
+}
+
 .pop-up {
   position: absolute;
   left: -10%;
