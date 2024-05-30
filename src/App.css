@@ -18,6 +18,7 @@ body {
   background-color: var(--gray);
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
     Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  overflow-x: clip;
 }
 
 .container {
@@ -65,9 +66,20 @@ body {
   width: 100%;
   padding: 1.5rem;
   background-color: var(--white);
+  @media screen and (width <= 1024px) {
+    justify-content: center;
+  }
   .header__title {
+    color: var(--lightBlue);
     font-size: var(--font-lg);
     font-weight: 700;
+  }
+  .header__icon {
+    z-index: 30;
+    cursor: pointer;
+    @media screen and (width <= 1024px) {
+      display: none;
+    }
   }
 }
 
@@ -79,9 +91,9 @@ body {
   justify-content: center;
   gap: 1rem;
   padding: 1rem;
-  @media screen and (width < 900px) {
+  @media screen and (width <= 1024px) {
     flex-direction: column;
-    gap: 2rem;
+    gap: 1.5rem;
   }
 }
 
@@ -105,8 +117,8 @@ textarea {
   background-color: var(--white);
   font-weight: 500;
   font-size: var(--font-sm);
-  @media screen and (width < 900px) {
-    height: 30dvh;
+  @media screen and (width <= 1024px) {
+    height: 35dvh;
   }
   &::placeholder {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
@@ -158,16 +170,50 @@ textarea {
 
 select option {
   font-weight: 700;
-  background-color: var(--gray);
+  background-color: var(--white);
   color: var(--black);
 }
 
+.menu {
+  position: absolute;
+  top: 0;
+  right: -200px;
+  padding: 7rem 4rem 2rem 1.5rem;
+  background-color: var(--white);
+  transition: all 300ms ease-in-out;
+  font-weight: 600;
+  @media screen and (width <= 1024px) {
+    display: none;
+  }
+  nav ul {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    li {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      gap: 0.5rem;
+      transition: all 350ms ease;
+      &:hover > *,
+      &:active > *,
+      &:focus > * {
+        color: var(--blue);
+      }
+    }
+  }
+}
+
 .footer {
-  width: 100%;
+  width: max(100%, 1024px);
   position: fixed;
   background-color: var(--white);
   bottom: 0;
   padding: 1rem;
+  box-sizing: border-box;
+  @media screen and (width >= 1024px) {
+    display: none;
+  }
   nav ul {
     width: 100%;
     display: flex;
@@ -189,7 +235,7 @@ select option {
         font-size: var(--font-sm);
         color: var(--zinc);
         font-weight: 500;
-        @media screen and (width < 400px) {
+        @media screen and (width <= 400px) {
           font-size: var(--font-xs);
         }
       }

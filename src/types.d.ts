@@ -22,7 +22,18 @@ export interface translateState {
   loading: boolean
 }
 
+export interface MenuState {
+  isOpen: boolean
+}
+
 export enum SectionType {
   Input = 'input',
   Output = 'output',
+}
+
+export interface LinkProps {
+  id: string
+  to: string
+  icon: () => JSX.Element
+  name: string
 }

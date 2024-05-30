@@ -1,9 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit'
 import translateReducer from './translate/translateSlice'
+import menuReducer from './menu/menuSlice'
 
 export const store = configureStore({
   reducer: {
     translate: translateReducer,
+    menu: menuReducer,
   },
 })
 
