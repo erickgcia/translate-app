@@ -262,6 +262,13 @@ select option {
   bottom: 15px;
 }
 
+.icon--star {
+  position: absolute;
+  cursor: pointer;
+  right: 60px;
+  bottom: 15px;
+}
+
 .pop-up {
   position: absolute;
   left: -10%;
@@ -270,7 +277,7 @@ select option {
   border: 1px solid var(--zinc);
   color: var(--white);
   padding: 0.5rem 1rem;
-  border-radius: 20px;
+  border-radius: 10px;
   width: fit-content;
   span {
     text-wrap: nowrap;

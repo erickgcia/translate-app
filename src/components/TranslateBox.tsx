@@ -8,7 +8,7 @@ import { setResult, setText } from '../state/translate/translateSlice'
 import { useEffect, useState } from 'react'
 import translate from '../services/translate'
 import { useDebounce } from '../hooks/useDebounce'
-import { CopyIcon, SpeakerIcon } from './Icons'
+import { CopyIcon, SpeakerIcon, StarIcon } from './Icons'
 import PopUp from './PopUp'
 
 const TranslateBox = () => {
@@ -25,6 +25,7 @@ const TranslateBox = () => {
   const dispatch = useDispatch()
 
   const [isCopied, setIsCopied] = useState(false)
+  const [isFavorite, setIsFavorite] = useState(false)
 
   const handleClipboardClick = () => {
     navigator.clipboard
@@ -38,6 +39,13 @@ const TranslateBox = () => {
       .catch((error) => {
         console.error('Error copying text to clipboard: ', error)
       })
+  }
+
+  const handleFavoriteClick = () => {
+    setIsFavorite(true)
+    setTimeout(() => {
+      setIsFavorite(false)
+    }, 1500)
   }
 
   const handleSpeakerClick = (box: string) => {
@@ -102,6 +110,10 @@ const TranslateBox = () => {
         />
         {text !== '' && (
           <>
+            <i className="icon--star" onClick={handleFavoriteClick}>
+              <StarIcon />
+              {isFavorite && <PopUp text="Favorite added." />}
+            </i>
             <i
               className="icon--speaker"
               onClick={() => handleSpeakerClick(result)}
