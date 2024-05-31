@@ -26,6 +26,7 @@ const TranslateBox = () => {
 
   const [isCopied, setIsCopied] = useState(false)
   const [isFavorite, setIsFavorite] = useState(false)
+  const [showPopup, setShowPopup] = useState(false)
 
   const handleClipboardClick = () => {
     navigator.clipboard
@@ -42,9 +43,10 @@ const TranslateBox = () => {
   }
 
   const handleFavoriteClick = () => {
-    setIsFavorite(true)
+    setIsFavorite(!isFavorite)
+    setShowPopup(true)
     setTimeout(() => {
-      setIsFavorite(false)
+      setShowPopup(false)
     }, 1500)
   }
 
@@ -112,7 +114,7 @@ const TranslateBox = () => {
           <>
             <i className="icon--star" onClick={handleFavoriteClick}>
               <StarIcon />
-              {isFavorite && <PopUp text="Favorite added." />}
+              {showPopup && <PopUp text="Favorite added." />}
             </i>
             <i
               className="icon--speaker"

@@ -6,6 +6,7 @@
   --orange: #f3a953;
   --blue: #064acb;
   --lightBlue: #366ed8;
+  --titleGradient: linear-gradient(to right, #00c6ff, #0072ff)
   --font-xs: clamp(0.75rem, 3vw, 1rem);
   --font-sm: clamp(1rem, 4vw, 1.25rem);
   --font-base: clamp(1.25rem, 4.5vw, 1.5rem);
@@ -13,6 +14,7 @@
   --font-xl: clamp(2rem, 6vw, 2.5rem);
   --titleGradient: to right, #46a7c8 30%, #74b2be 60%, #99aeff 90%;
 }
+
 
 body {
   background-color: var(--gray);
@@ -65,12 +67,15 @@ body {
   justify-content: space-between;
   width: 100%;
   padding: 1.5rem;
+  overflow-x: hidden;
   background-color: var(--white);
   @media screen and (width <= 1024px) {
     justify-content: center;
   }
   .header__title {
-    color: var(--lightBlue);
+    color: transparent;
+    background-image: linear-gradient(to right, #00c6ff, #0072ff);
+    background-clip: text;
     font-size: var(--font-lg);
     font-weight: 700;
   }
@@ -176,6 +181,8 @@ select option {
 
 .menu {
   position: absolute;
+  z-index: 10;
+  opacity: 0;
   top: 0;
   right: -200px;
   padding: 7rem 4rem 2rem 1.5rem;
@@ -205,7 +212,7 @@ select option {
 }
 
 .footer {
-  width: max(100%, 1024px);
+  width: min(100%, 1024px);
   position: fixed;
   background-color: var(--white);
   bottom: 0;

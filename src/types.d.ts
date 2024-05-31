@@ -31,9 +31,9 @@ export enum SectionType {
   Output = 'output',
 }
 
-export interface LinkProps {
+export interface NavLinkProps {
+  name: string
   id: string
   to: string
   icon: () => JSX.Element
-  name: string
 }
