@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import { NavLinks } from '../constants'
 import { NavLinkProps } from '../types.d'
 
@@ -8,8 +8,10 @@ const MenuContainer = () => {
       <ul>
         {NavLinks.map(({ id, to, icon, name }: NavLinkProps) => (
           <li key={id}>
-            <Link to={`/${to}`}>{icon()}</Link>
-            <span>{name}</span>
+            <NavLink to={`/${to}`}>
+              <i>{icon()}</i>
+              <span>{name}</span>
+            </NavLink>
           </li>
         ))}
       </ul>

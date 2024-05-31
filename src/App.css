@@ -196,7 +196,7 @@ select option {
     display: flex;
     flex-direction: column;
     gap: 2rem;
-    li {
+    li a {
       display: flex;
       align-items: center;
       cursor: pointer;
