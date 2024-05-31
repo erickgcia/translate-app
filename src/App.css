@@ -292,3 +292,27 @@ select option {
     font-size: 12px;
   }
 }
+
+.error {
+  display: grid;
+  place-items: center;
+  place-content: center;
+  gap: 2rem;
+  height: 100dvh;
+  h1 {
+    font-size: var(--font-xl);
+    font-weight: 700;
+  }
+  a {
+    color: var(--orange);
+    font-size: var(--font-base);
+    font-weight: 500;
+  }
+}
+
+.favorites--empty {
+  font-size: var(--font-base);
+  font-weight: 600;
+  text-align: center;
+  padding: 2rem;
+}

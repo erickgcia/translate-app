@@ -2,12 +2,7 @@ import { LANGUAGES } from '../constants'
 import { VerticalSwitch } from './Icons'
 import { useDispatch } from 'react-redux'
 import { setLanguage } from '../app/translate/translateSlice'
-import {
-  FranceFlag,
-  GlobeIcon,
-  MexicoFlag,
-  UnitedStatesFlag,
-} from '../components/Icons'
+import { FranceFlag, GlobeIcon, MexicoFlag, UnitedStatesFlag } from './Icons'
 import { Props } from '../types'
 
 const LangSelector = ({ location, currentLang }: Props) => {
