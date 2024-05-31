@@ -37,3 +37,12 @@ export interface NavLinkProps {
   to: string
   icon: () => JSX.Element
 }
+
+interface FavoritesState {
+  favoritesList: Favorite[]
+  favoritesCount: number
+}
+
+interface Favorite {
+  id: string
+}

@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux'
-import { RootState } from '../state/store'
-import { switchLanguage } from '../state/translate/translateSlice'
+import { RootState } from '../app/store'
+import { switchLanguage } from '../app/translate/translateSlice'
 import { RotateIcon } from './Icons'
 
 const LangSwitch = () => {

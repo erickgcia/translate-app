@@ -1,7 +1,7 @@
 import ReactDOM from 'react-dom/client'
 import './index.css'
 import { Provider } from 'react-redux'
-import { store } from './state/store.ts'
+import { store } from './app/store.ts'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import TranslatePage from './pages/TranslatePage.tsx'
 import Error404Page from './pages/Error404Page.tsx'

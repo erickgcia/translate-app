@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux'
 import Header from '../components/Header'
 import Menu from '../components/Menu'
-import { RootState } from '../state/store'
+import { RootState } from '../app/store'
 
 const FavoritesPage = () => {
   const isOpen = useSelector((state: RootState) => state.menu.isOpen)
@@ -10,6 +10,7 @@ const FavoritesPage = () => {
       <Header isOpen={isOpen} />
       <main>
         <Menu isOpen={isOpen} />
+        <article className="container"></article>
       </main>
     </>
   )

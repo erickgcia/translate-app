@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux'
 import Header from '../components/Header'
 import Menu from '../components/Menu'
-import { RootState } from '../state/store'
+import { RootState } from '../app/store'
 
 const ProfilePage = () => {
   const isOpen = useSelector((state: RootState) => state.menu.isOpen)

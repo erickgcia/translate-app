@@ -1,5 +1,5 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit'
-import { type LanguagePayload, type translateState } from '../../types.d'
+import { type LanguagePayload, type translateState } from '../../types'
 
 const initialState: translateState = {
   langInput: 'auto',

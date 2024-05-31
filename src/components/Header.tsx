@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import { MenuState } from '../types'
 import { MenuIcon, XIcon } from './Icons'
 import { useDispatch } from 'react-redux'
-import { setMenu } from '../state/menu/menuSlice'
+import { setMenu } from '../app/menu/menuSlice'
 
 const Header = ({ isOpen }: MenuState) => {
   const dispatch = useDispatch()

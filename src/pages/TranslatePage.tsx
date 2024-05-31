@@ -1,7 +1,7 @@
 import '../App.css'
 import TranslateBox from '../components/TranslateBox'
 import { useSelector } from 'react-redux'
-import { RootState } from '../state/store'
+import { RootState } from '../app/store'
 import Header from '../components/Header'
 import Menu from '../components/Menu'
 import Footer from '../components/Footer'

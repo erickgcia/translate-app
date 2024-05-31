@@ -1,7 +1,7 @@
 import { LANGUAGES } from '../constants'
 import { VerticalSwitch } from './Icons'
 import { useDispatch } from 'react-redux'
-import { setLanguage } from '../state/translate/translateSlice'
+import { setLanguage } from '../app/translate/translateSlice'
 import {
   FranceFlag,
   GlobeIcon,
