@@ -48,25 +48,25 @@ export const NavLinks = [
   {
     id: crypto.randomUUID(),
     icon: TranslateIcon,
-    to: '#',
+    to: '',
     name: 'Translate',
   },
   {
     id: crypto.randomUUID(),
     icon: StarIcon,
-    to: '#',
+    to: 'favorites',
     name: 'Favorites',
   },
   {
     id: crypto.randomUUID(),
     icon: ClockIcon,
-    to: '#',
+    to: 'history',
     name: 'History',
   },
   {
     id: crypto.randomUUID(),
     icon: UserIcon,
-    to: '#',
+    to: 'profile',
     name: 'Profile',
   },
 ]
