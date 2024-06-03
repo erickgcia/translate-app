@@ -218,7 +218,7 @@ select option {
   bottom: 0;
   padding: 1rem;
   box-sizing: border-box;
-  @media screen and (width >= 1024px) {
+  @media screen and (width > 1024px) {
     display: none;
   }
   nav ul {
@@ -327,6 +327,13 @@ select option {
   padding: 2rem;
 }
 
+.favorites {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding-top: 3rem;
+}
+
 .favorite-box {
   width: 100%;
   display: flex;
@@ -337,7 +344,6 @@ select option {
   border-radius: 20px;
   box-shadow: var(--zinc) 0 1px 1px 0;
   padding: 1rem 2rem;
-  margin: 2rem;
   font-size: var(--font-sm);
   strong {
     font-weight: 600;

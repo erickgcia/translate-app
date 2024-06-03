@@ -46,15 +46,16 @@ const TranslateBox = () => {
   const handleFavoriteClick = () => {
     setIsFavorite(!isFavorite)
     setShowPopup(true)
-    setTimeout(() => {
-      setShowPopup(false)
-    }, 1500)
     const favorite = {
       favorite: result,
       id: crypto.randomUUID(),
       language: langOutput,
     }
     dispatch(addFavorite(favorite))
+    setTimeout(() => {
+      setShowPopup(false)
+      setIsFavorite(false)
+    }, 1500)
   }
 
   const handleSpeakerClick = (box: string) => {
