@@ -112,7 +112,11 @@ const TranslateBox = () => {
         />
         {text !== '' && (
           <>
-            <i className="icon--star" onClick={handleFavoriteClick}>
+            <i
+              role="favorite-icon"
+              className="icon--star"
+              onClick={handleFavoriteClick}
+            >
               <StarIcon />
               {showPopup && <PopUp text="Favorite added." />}
             </i>

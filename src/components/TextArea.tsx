@@ -10,7 +10,7 @@ interface Props {
 const TextArea = ({ loading, value, type, onChange }: Props) => {
   const placeHolderText =
     type === SectionType.Input
-      ? 'Enter Text...'
+      ? 'Enter Text'
       : type === SectionType.Output && loading
       ? 'Loading...'
       : 'Translation'
