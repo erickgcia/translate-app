@@ -1,20 +1,18 @@
 import { OpenAI } from 'openai'
 import { LANGUAGEABVS } from '../constants'
 
+interface Translate {
+  langInput: string
+  langOutput: string
+  text: string
+}
+
 const openai = new OpenAI({
   apiKey: import.meta.env.VITE_OPENAI_API_KEY,
   dangerouslyAllowBrowser: true,
 })
 
-const translate = async ({
-  langInput,
-  langOutput,
-  text,
-}: {
-  langInput: string
-  langOutput: string
-  text: string
-}) => {
+const translate = async ({ langInput, langOutput, text }: Translate) => {
   if (langInput === langOutput) return text
   const fromCode = langInput === 'auto' ? 'auto' : LANGUAGEABVS[langInput]
   const toCode = LANGUAGEABVS[langOutput]
@@ -57,7 +55,6 @@ const translate = async ({
     model: 'gpt-3.5-turbo',
   }
   const completion = await openai.chat.completions.create(params)
-
   return completion.choices[0]?.message?.content
 }
 
