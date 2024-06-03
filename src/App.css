@@ -253,6 +253,9 @@ select option {
   }
 }
 
+.icon {
+  cursor: pointer;
+}
 
 .icon--copy {
   position: absolute;
@@ -310,9 +313,40 @@ select option {
   }
 }
 
+.favorites-title {
+  font-size: var(--font-xl);
+  font-weight: 700;
+  color: var(--lightBlue)
+
+}
+
 .favorites--empty {
   font-size: var(--font-base);
   font-weight: 600;
   text-align: center;
   padding: 2rem;
+}
+
+.favorite-box {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--white);
+  gap: 2rem;
+  border-radius: 20px;
+  box-shadow: var(--zinc) 0 1px 1px 0;
+  padding: 1rem 2rem;
+  margin: 2rem;
+  font-size: var(--font-sm);
+  strong {
+    font-weight: 600;
+    flex-grow: 1;
+    border-inline: 2px solid var(--zinc);
+    padding-inline-start: 1rem;
+  }
+  p {
+    color: var(--orange);
+    font-weight: 700;
+  }
 }

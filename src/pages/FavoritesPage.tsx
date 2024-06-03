@@ -2,6 +2,8 @@ import { useSelector } from 'react-redux'
 import Header from '../components/Header'
 import Menu from '../components/Menu'
 import { RootState } from '../app/store'
+import Footer from '../components/Footer'
+import FavoriteBox from '../components/FavoriteBox'
 
 const FavoritesPage = () => {
   const isOpen = useSelector((state: RootState) => state.menu.isOpen)
@@ -14,13 +16,22 @@ const FavoritesPage = () => {
       <main>
         <Menu isOpen={isOpen} />
         <article className="container">
-          {favoritesList.length <= 0 ? (
-            <p className="favorites--empty">You don't have any favorites yet</p>
+          <h1 className="favorites-title">Favorites</h1>
+          {favoritesList.length > 0 ? (
+            favoritesList.map((favorite, index) => (
+              <FavoriteBox
+                key={index}
+                favorite={favorite.favorite}
+                language={favorite.language}
+                id={favorite.id}
+              />
+            ))
           ) : (
-            'Hello world'
+            <p className="favorites--empty">No favorites yet.</p>
           )}
         </article>
       </main>
+      <Footer />
     </>
   )
 }

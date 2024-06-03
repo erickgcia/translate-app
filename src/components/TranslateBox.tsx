@@ -10,6 +10,7 @@ import translate from '../services/translate'
 import { useDebounce } from '../hooks/useDebounce'
 import { CopyIcon, SpeakerIcon, StarIcon } from './Icons'
 import PopUp from './PopUp'
+import { addFavorite } from '../app/favorites/favoritesSlice'
 
 const TranslateBox = () => {
   const langInput = useSelector((state: RootState) => state.translate.langInput)
@@ -48,6 +49,12 @@ const TranslateBox = () => {
     setTimeout(() => {
       setShowPopup(false)
     }, 1500)
+    const favorite = {
+      favorite: result,
+      id: crypto.randomUUID(),
+      language: langOutput,
+    }
+    dispatch(addFavorite(favorite))
   }
 
   const handleSpeakerClick = (box: string) => {

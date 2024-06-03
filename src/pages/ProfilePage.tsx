@@ -2,6 +2,7 @@ import { useSelector } from 'react-redux'
 import Header from '../components/Header'
 import Menu from '../components/Menu'
 import { RootState } from '../app/store'
+import Footer from '../components/Footer'
 
 const ProfilePage = () => {
   const isOpen = useSelector((state: RootState) => state.menu.isOpen)
@@ -11,6 +12,7 @@ const ProfilePage = () => {
       <main>
         <Menu isOpen={isOpen} />
       </main>
+      <Footer />
     </>
   )
 }

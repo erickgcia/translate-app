@@ -43,6 +43,8 @@ interface FavoritesState {
   favoritesCount: number
 }
 
-interface Favorite {
+type Favorite = {
   id: string
+  favorite: string
+  language: string
 }
