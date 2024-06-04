@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { PayloadAction, createSlice } from '@reduxjs/toolkit'
 import { MenuState } from '../../types'
 
 const initialState: MenuState = {
@@ -9,7 +9,7 @@ export const menuSlice = createSlice({
   name: 'menu',
   initialState,
   reducers: {
-    setMenu: (state, action) => {
+    setMenu: (state, action: PayloadAction<boolean>) => {
       state.isOpen = action.payload
     },
   },
